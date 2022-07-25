@@ -29,8 +29,21 @@ body {
     width: 1200px;
     padding-left: 15px;
     padding-right: 15px;
-
     /* outline: 2px solid tomato; */
+}
+
+.email-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    /* white-space: nowrap;
+    clip-path: inset(100%);  */
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 /* Шапка сайту */
@@ -84,12 +97,15 @@ body {
     padding-top: 32px;
     padding-bottom: 32px;
 
-    color: var(--title-text-color);
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+
+    color: var(--title-text-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link.current::after {
@@ -101,11 +117,9 @@ body {
     width: 100%;
     height: 4px;
 
-    border-radius: 2px;
-
     background-color: var(--accent-color);
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
 }
 
 .site-nav .link.current,
@@ -129,13 +143,14 @@ body {
     padding-top: 32px;
     padding-bottom: 32px;
 
-    color: var(--primary-text-color);
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
 
     text-decoration: none;
+
+    color: var(--primary-text-color);
 
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -405,19 +420,21 @@ body {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.team .icon-team {
-    fill: currentColor;
-}
-
 .team .social-link:hover,
-.team .social-link:focus,
-.team .social-link:hover .icon-team,
-.team .social-link:focus .icon-team
- {
-    fill: #ffffff;
+.team .social-link:focus {
+    color: #ffffff;
     background-color: #2196f3;
 }
+/* .team .social-link:hover .icon-team,
+.team .social-link:focus .icon-team {
+    color: #ffffff;
+}*/
 
+.team .icon-team {
+    fill: currentColor;
+    /* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+}
+    
 /* Посітйні клієнти */ 
 /* .clients {} */
 
@@ -450,16 +467,18 @@ body {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.icon-clients {
-    fill: currentColor;
+.client-link:hover,
+.client-link:focus {
+/*,
+.client-link:hover .icon-clients,
+.client-link:focus .icon-clients */
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
-.client-link:hover,
-.client-link:focus,
-.client-link:hover .icon-clients,
-.client-link:focus .icon-clients {
-    fill: var(--accent-color);
-    border-color: var(--accent-color);
+.icon-clients {
+    fill: currentColor;
+    /* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 /* Сторінка Портфоліо */
@@ -686,17 +705,18 @@ body {
     margin-left: 70px;
 }
 
-.social-title {
+.footer-title {
     display: inline-block;
     margin-top: 0;
     margin-bottom: 20px;
 
-    --primary-text-color: var(--white-text-color);
-    color: var(--primary-text-color);
     font-weight: 700;
     line-height: 1.14;
     text-transform: uppercase;
     text-align: left;
+
+    color: var(--white-text-color);
+    
 }
 
 .social-footer .social-list {
@@ -729,15 +749,87 @@ body {
 }
 
 .social-footer .social-link:hover,
-.social-footer .social-link:focus,
+.social-footer .social-link:focus
+/* ,
 .social-footer .social-link:hover .icon-symbol,
-.social-footer .social-link:focus .icon-symbol
+.social-footer .social-link:focus .icon-symbol */
  {
     background-color: var(--accent-color);
 }
 
 .social-footer .icon-symbol {
     fill: currentColor; 
+}
+
+.subscription {
+    margin-left: 93px; /* auto? */
+}
+
+/* .footer-title {} */
+/* .subscription-form {} */
+
+.subscription-mail {
+    display: flex;
+    gap: 12px;
+}
+
+/* .email-label {}   */
+
+.email-input {
+    /* margin-right: 12px; */
+    padding: 15px;
+
+    width: 358px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 1.25;
+
+    color: rgba(255, 255, 255, 0.6);
+    background-color: var(--footer-bg-color); 
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.email-input:hover, .email-input:focus {
+    border-color: var(--accent-color);
+}
+
+.subscribe-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+
+    padding: 0;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.87px;
+    letter-spacing: 0.06em;
+
+    color: var(--white-text-color);
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border:none;
+    border-radius: 4px;
+
+    cursor: pointer; 
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-button:hover, .subscribe-button:focus {
+    background-color: #188ce8; /* ? */
+} 
+
+.button-icon {
+    fill: currentColor;
+    margin-left: 10px;
 }
 
 .backdrop {
@@ -769,16 +861,60 @@ body {
     transform: translate(-50%, -50%) scale(1) perspective(400px) rotate(0);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    padding: 15px;
+    padding: 40px;
 
     min-width: 528px;
     min-height: 581px;
 
     border-radius: 4px;
 
-    color: var(--accent-color);
+    /* color: var(--accent-color); */
     background-color: var(--primary-bg-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+    margin-bottom: 12px;
+    color: var(--title-text-color);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    }
+
+/* .form-modal {} */
+
+.form-button {
+    
+    width: 200px;
+    height: 50px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 30px;
+    align-items: center;
+
+    border: none;
+    border-radius: 4px;
+    
+    color: var(--white-text-color);
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-button:hover, .form-button:focus {
+    background-color: #188ce8;
+}
+
+textarea {
+    resize: none;
+}
+
+.contract {
+    text-decoration: none;
+    color: var(--accent-color);
 }
 
 .close-button {
@@ -795,6 +931,11 @@ body {
     cursor: pointer;
 
     background-color: var(--primary-bg-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-button:hover .close-icon, .close-button:focus .close-icon {
+    color: var(--accent-color);
 }
 
 .close-icon { 
