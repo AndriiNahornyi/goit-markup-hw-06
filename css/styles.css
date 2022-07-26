@@ -924,7 +924,7 @@ body {
 }
 
 .form-field:hover .icon-input,
-.form-field:focus .icon-input {
+.form-field:focus-within .icon-input {
     fill: var(--accent-color);
 }
 
@@ -958,16 +958,6 @@ body {
 }
     
 /* .consent-checkbox {} */
-/* .checkbox {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-} */
 
 .custom-checkbox { 
     display: inline-block;
